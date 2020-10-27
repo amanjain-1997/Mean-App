@@ -5,9 +5,7 @@ import { startWith,map } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
 
 
-/**
- * @title Filter autocomplete
- */
+
 @Component({
   templateUrl: 'adminhome.component.html',
   styleUrls: ['adminhome.component.css']
@@ -29,11 +27,11 @@ export class AdminHomeComponent {
   ELEMENT_DATA;
   dataSource;
   chartOptions = {
-    responsive: true    // THIS WILL MAKE THE CHART RESPONSIVE (VISIBLE IN ANY DEVICE).
+    responsive: true    
   }
 
     piechartOptions = {
-    responsive: true    // THIS WILL MAKE THE CHART RESPONSIVE (VISIBLE IN ANY DEVICE).
+    responsive: true   
   }
 
   chartData;
