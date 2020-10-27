@@ -49,7 +49,7 @@ export class AuthService {
     const authData: AuthData = { email: email, password: password };
     this.http
       .post<{ token: string; expiresIn: number, isAdmin:string }>(
-        "http://aqueous-plains-00254.herokuapp.com/api/user/login",
+        "https://aqueous-plains-00254.herokuapp.com/api/user/login",
         authData
       )
       .subscribe(response => {
