@@ -27,6 +27,9 @@ export class AdminHomeComponent {
   ELEMENT_DATA;
   dataSource;
   chartOptions = {
+    scales: {
+      yAxes: [{id: 'y-axis-1', type: 'linear', position: 'left', ticks: {min: 0}}]
+    },
     responsive: true    
   }
 
