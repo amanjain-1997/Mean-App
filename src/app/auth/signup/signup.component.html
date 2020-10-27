@@ -6,8 +6,8 @@
       <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input type="password" name="password" minlength="3" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
-      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+      <input type="password" name="password" minlength="4" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Password should have atleast 4 characters .</mat-error>
     </mat-form-field>
     <button mat-raised-button color="accent" type="submit">Signup</button>
   </form>
