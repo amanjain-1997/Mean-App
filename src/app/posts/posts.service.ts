@@ -18,7 +18,7 @@ export class PostsService {
   getPosts() {
     const email=this.authService.getEmail();
     this.http
-      .get<{ message: string; posts: any }>("http://aqueous-plains-00254.herokuapp.com/api/posts/all/" + email)
+      .get<{ message: string; posts: any }>("https://aqueous-plains-00254.herokuapp.com/api/posts/all/" + email)
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
@@ -42,7 +42,7 @@ export class PostsService {
 
   getPost(id: string) {
     return this.http.get<{ _id: string; title: string; content: string }>(
-      "http://aqueous-plains-00254.herokuapp.com/api/posts/" + id
+      "https://aqueous-plains-00254.herokuapp.com/api/posts/" + id
     );
   }
 
@@ -51,7 +51,7 @@ export class PostsService {
     const post: Post = { id: null, title: title, content: content , email: email };
     this.http
       .post<{ message: string; postId: string }>(
-        "http://aqueous-plains-00254.herokuapp.com/api/posts",
+        "https://aqueous-plains-00254.herokuapp.com/api/posts",
         post
       )
       .subscribe(responseData => {
@@ -66,7 +66,7 @@ export class PostsService {
   updatePost(id: string, title: string, content: string, email:string) {
     const post = { id: id, title: title, content: content, email:email };
     this.http
-      .put("http://aqueous-plains-00254.herokuapp.com/api/posts/" + id, post)
+      .put("https://aqueous-plains-00254.herokuapp.com/api/posts/" + id, post)
       .subscribe(response => {
         
         this.router.navigate(["/"]);
@@ -75,7 +75,7 @@ export class PostsService {
 
   deletePost(postId: string) {
     this.http
-      .delete("http://aqueous-plains-00254.herokuapp.com/api/posts/" + postId)
+      .delete("https://aqueous-plains-00254.herokuapp.com/api/posts/" + postId)
       .subscribe(() => {
         const updatedPosts = this.posts.filter(post => post.id !== postId);
         this.posts = updatedPosts;

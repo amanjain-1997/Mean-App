@@ -66,7 +66,7 @@
       (chartClick)="onChartClick($event)">
   </canvas>
 </div>
-
+<h4 *ngIf="tableneeded" style="text-align:center;"> Chart: Vowel Frequency </h4>
 <div *ngIf="tableneeded">
   <canvas
       baseChart
@@ -78,3 +78,4 @@
       (chartClick)="onChartClick($event)">
   </canvas>
 </div>
+<h4 *ngIf="tableneeded" style="text-align:center;"> Chart: Character Distribution </h4>

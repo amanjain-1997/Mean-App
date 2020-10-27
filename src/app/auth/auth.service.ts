@@ -35,7 +35,7 @@ export class AuthService {
   createUser(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
     this.http
-      .post("http://aqueous-plains-00254.herokuapp.com/api/user/signup", authData)
+      .post("https://aqueous-plains-00254.herokuapp.com/api/user/signup", authData)
       .subscribe(response => {
         console.log(response);
         this.router.navigate(["/login"]);
