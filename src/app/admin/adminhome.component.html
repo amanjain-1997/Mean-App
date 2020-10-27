@@ -1,0 +1,80 @@
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Select Post Title" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button (click)="onSubmit()"
+  mat-raised-button
+  color="accent"
+  type="submit">Generate</button>
+
+</form>
+<form class="postOne">
+<mat-expansion-panel *ngIf="tableneeded">
+  <mat-expansion-panel-header>
+    {{ titleSingle}}
+  </mat-expansion-panel-header>
+  <p>{{ contentSingle }}</p>
+</mat-expansion-panel>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  *ngIf="tableneeded">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<h1 *ngIf="tableneeded">
+  {{title}}
+</h1>
+
+<div *ngIf="tableneeded">
+  <canvas
+      baseChart
+      [chartType]="'bar'"
+      [datasets]="chartData"
+      [labels]="labels"
+      [options]="chartOptions"
+      [legend]="true"
+      [colors]="colors"
+      (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
+
+<div *ngIf="tableneeded">
+  <canvas
+      baseChart
+      [chartType]="'pie'"
+      [datasets]="piechartData"
+      [labels]="pielabels"
+      [options]="piechartOptions"
+      [legend]="true"
+      (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
